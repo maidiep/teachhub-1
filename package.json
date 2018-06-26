@@ -1,0 +1,19 @@
+{
+  "name": "teachhub",
+  "version": "1.0.0",
+  "description": "teachhub",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajdhandus/teachhub.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rajdhandus/teachhub/issues"
+  },
+  "homepage": "https://github.com/rajdhandus/teachhub#readme"
+}
