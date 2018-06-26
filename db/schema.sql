@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS teachhub_db;
+CREATE DATABASE teachhub_db;
