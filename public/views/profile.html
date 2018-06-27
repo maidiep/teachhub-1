@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Francois+One" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+
+
+
+    <title>teachHub</title>
+</head>
+
+<body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <br>
+    <h1 class="text-center">
+        <i class="fas fa-chalkboard-teacher"></i>
+        TeachHub
+    </h1>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="./index.html">Home</a>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">FAQ</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ml-md-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">My Profile
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">SignOut
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="https://placeholder.com">
+                            <img src="http://via.placeholder.com/300x300">
+                        </a>
+                    </div>
+
+
+                    <div class="container-fluid col-md-9">
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-upload-tab" data-toggle="tab" href="#nav-upload" role="tab" aria-controls="nav-home"
+                                    aria-selected="true">Upload a Lesson</a>
+                                <a class="nav-item nav-link" id="nav-myupload-tab" data-toggle="tab" href="#nav-myupload" role="tab" aria-controls="nav-profile"
+                                    aria-selected="false">My Uploads</a>
+                                <a class="nav-item nav-link" id="nav-mydownload-tab" data-toggle="tab" href="#nav-mydownload" role="tab" aria-controls="nav-contact"
+                                    aria-selected="false">My Downloads</a>
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-upload" role="tabpanel" aria-labelledby="nav-upload-tab">
+                                <div class="card-body">
+                                    <p class="card-text">Ready to share another lesson?</p>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#uploadPopUp">Upload a Lesson</button>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-myupload" role="tabpanel" aria-labelledby="nav-myupload-tab">Butterfly Life Cycle</div>
+                            <div class="tab-pane fade" id="nav-mydownload" role="tabpanel" aria-labelledby="nav-mydownload-tab">Introduction to Computer Science</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- start upload modal -->
+    <div class="modal fade" id="uploadPopUp">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- header -->
+                    <div class="modal-header">
+                        <h3 class="modal-title">Upload a Lesson</h3>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- body -->
+                    <div class="modal-body">
+                            <form method="post" action="/Tests/Post/">      
+                                <fieldset>      
+                                        <legend>Subject</legend>    
+                                        <select name="subject"> 
+                                                <option value="">Choose a Subject</option>
+                                                <option value="math">Math</option>
+                                                <option value="ela">ELA</option>
+                                                <option value="science">Science</option>
+                                                <option value="socialstudies">Social Studies</option>
+                                                <option value="computerscience">Computer Science</option>
+                                        </select>       
+                                        <legend>Grade</legend>    
+                                        <select name="grade">
+                                                <option value="">Choose a Grade</option>
+                                                <option value="k">K</option>
+                                                <option value="1">1st</option>
+                                                <option value="2">2nd</option>
+                                                <option value="3">3rd</option>
+                                                <option value="4">4th</option>
+                                                <option value="5">5th</option>
+                                                <option value="6">6th</option>
+                                                <option value="7">7th</option>
+                                                <option value="8">8th</option>
+                                                <option value="9">9th</option>
+                                                <option value="10">10th</option>
+                                                <option value="11">11th</option>
+                                                <option value="12">12th</option>
+                                              </select>  
+                                              <br>
+                                              <br>
+                                              <div class="form-group">
+                                                    Lesson Description
+                                                    <input type="text" class="form-control"> <br><label for="exampleInputFile">
+                                                            Upload File
+                                                        </label>
+                                                        <input type="file" class="form-control-file" id="exampleInputFile" />
+                                                        <p class="help-block">
+                                                        </p>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label for="exampleInputFile">
+                                                                Upload File
+                                                            </label>
+                                                            <input type="file" class="form-control-file" id="exampleInputFile" />
+                                                            <p class="help-block">
+                                                            </p>
+                                                     <br>
+                                                    </div>
+                                </fieldset>      
+                        </form>
+                    </div>
+                    <!-- modal footer -->
+                    <div class="modal-footer">
+                        <button class="btn btn-success btn-block">Submit Lesson</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
