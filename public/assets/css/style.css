@@ -1,0 +1,21 @@
+h1, h2, h3, a {
+    font-family: 'Francois One', sans-serif;
+}
+
+p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 24px;
+}
+
+.jumbotron {
+    background: url('../img/pencil.jpg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    margin-top: 1em;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    opacity: .75;
+    min-height: 400px
+ }
