@@ -1,3 +1,4 @@
+window.onload = init;
 //Bind out events here
 function init() {
     document.getElementById("searchButton").onclick = searchBoy;
@@ -101,5 +102,3 @@ function parseSubject(searchValue) {
         return "SCIENCE";
     }
 }
-
-init();
