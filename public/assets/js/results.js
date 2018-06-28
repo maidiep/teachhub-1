@@ -1,3 +1,4 @@
+window.onload = init;
 //Initialize all of our fields
 function init() {
     document.getElementById("filterSubmit").onclick = clickboy;
@@ -31,6 +32,3 @@ function submitSearch(grade,subject,stars) {
         }
     );
 }
-
-//Call init at the end to make sure e'rything been hoisted
-init();
