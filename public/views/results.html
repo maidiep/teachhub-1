@@ -15,7 +15,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
 
+<<<<<<< HEAD
+    <script src="../assets/js/results.js"></script>
+=======
 
+>>>>>>> d860847d59819468e6563dd822f44499fef1cdc2
 
     <title>teachHub</title>
 </head>
@@ -41,6 +45,10 @@
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
+<<<<<<< HEAD
+
+=======
+>>>>>>> d860847d59819468e6563dd822f44499fef1cdc2
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -73,10 +81,11 @@
                                 Filter
                             </h2>
                             <br>
-                            <form method="post" action="/Tests/Post/">      
+                            <form method="post" action="/Tests/Post/">
+                                <input type="submit" value="Submit" id="filterSubmit"/>      
                                 <fieldset>      
                                         <legend>Subject</legend>    
-                                        <select name="subject"> 
+                                        <select name="subject" id="subjectSelect"> 
                                                 <option value="">Choose a Subject</option>
                                                 <option value="math">Math</option>
                                                 <option value="ela">ELA</option>
@@ -86,7 +95,7 @@
                                         </select>       
                                         <br><br><br>
                                         <legend>Grade</legend>    
-                                        <select name="grade">
+                                        <select name="grade" id="gradeSelect">
                                                 <option value="">Choose a Grade</option>
                                                 <option value="k">K</option>
                                                 <option value="1">1st</option>
@@ -102,8 +111,7 @@
                                                 <option value="11">11th</option>
                                                 <option value="12">12th</option>
                                               </select>  
-                                        <br><br><br>   
-                                        <input type="submit" value="Submit" />      
+                                        <br><br><br>         
                                 </fieldset>      
                         </form>
                         </div>

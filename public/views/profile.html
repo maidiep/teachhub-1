@@ -123,7 +123,7 @@
                             <form method="post" action="/Tests/Post/">      
                                 <fieldset>      
                                         <legend>Subject</legend>    
-                                        <select name="subject"> 
+                                        <select name="subject" id="subjectSelect"> 
                                                 <option value="">Choose a Subject</option>
                                                 <option value="math">Math</option>
                                                 <option value="ela">ELA</option>
@@ -132,9 +132,9 @@
                                                 <option value="computerscience">Computer Science</option>
                                         </select>       
                                         <legend>Grade</legend>    
-                                        <select name="grade">
+                                        <select name="grade" id="gradeSelect">
                                                 <option value="">Choose a Grade</option>
-                                                <option value="k">K</option>
+                                                <option value="0">K</option>
                                                 <option value="1">1st</option>
                                                 <option value="2">2nd</option>
                                                 <option value="3">3rd</option>
@@ -155,7 +155,7 @@
                                                     <input type="text" class="form-control"> <br><label for="exampleInputFile">
                                                             Upload File
                                                         </label>
-                                                        <input type="file" class="form-control-file" id="exampleInputFile" />
+                                                        <input type="file" class="form-control-file" id="exampleInputFile1" />
                                                         <p class="help-block">
                                                         </p>
                                                 </div>
@@ -163,7 +163,7 @@
                                                         <label for="exampleInputFile">
                                                                 Upload File
                                                             </label>
-                                                            <input type="file" class="form-control-file" id="exampleInputFile" />
+                                                            <input type="file" class="form-control-file" id="exampleInputFile2" />
                                                             <p class="help-block">
                                                             </p>
                                                      <br>
@@ -173,7 +173,7 @@
                     </div>
                     <!-- modal footer -->
                     <div class="modal-footer">
-                        <button class="btn btn-success btn-block">Submit Lesson</button>
+                        <button class="btn btn-success btn-block" id="submitButton">Submit Lesson</button>
                     </div>
                 </div>
             </div>
