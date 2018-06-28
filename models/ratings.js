@@ -1,20 +1,21 @@
 module.exports = function(sequelize, DataTypes) {
-    var Ratings = sequelize.define("Ratings", {     
-      stars: Datatypes.INTEGER,
-      comments: Datatypes.TEXT,
+    var Rating = sequelize.define("Rating", {     
+      stars: DataTypes.INTEGER,
+      comments: DataTypes.TEXT,
       id: {
+        type: DataTypes.INTEGER,
         primaryKey: true
       }
     });
      
-Lessons.associate = function(models) {    
-    Ratings.belongsTo(models.Teacher, {
+Rating.associate = function(models) {    
+    Rating.belongsTo(models.Teacher, {
       foreignKey: "teacherId"
     });
-    Ratings.belongsTo(models.Lessons, {
+    Rating.belongsTo(models.Lesson, {
         foreingKey: "lessonId"
     });
 };
 
-    return Ratings;
+    return Rating;
   };
