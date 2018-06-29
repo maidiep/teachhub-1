@@ -31,74 +31,76 @@ function submitSearch(grade,subject) {
 
 //Grade parsing
 function parseGrade(searchValue) {
-    if(searchValue.contains("first") || searchValue.contains(" 1 ") || searchValue.contains("1st")) {
+    if(searchValue.includes("first") || searchValue.includes(" 1 ") || searchValue.includes("1st")) {
         return 1; 
     }
-    else if(searchValue.contains("second") || searchValue.contains(" 2 ") || searchValue.contains("2nd")) {
+    else if(searchValue.includes("second") || searchValue.includes(" 2 ") || searchValue.includes("2nd")) {
         return 2;
     }
-    else if(searchValue.contains("third") || searchValue.contains(" 3 ") || searchValue.contains("3rd")) {
+    else if(searchValue.includes("third") || searchValue.includes(" 3 ") || searchValue.includes("3rd")) {
         return 3;
     }
-    else if(searchValue.contains("fourth") || searchValue.contains(" 4 ") || searchValue.contains("4th")) {
+    else if(searchValue.includes("fourth") || searchValue.includes(" 4 ") || searchValue.includes("4th")) {
         return 4;
     }
-    else if(searchValue.contains("fifth") || searchValue.contains(" 5 ") || searchValue.contains("5th")) {
+    else if(searchValue.includes("fifth") || searchValue.includes(" 5 ") || searchValue.includes("5th")) {
         return 5;
     }
-    else if(searchValue.contains("sixth") || searchValue.contains(" 6 ") || searchValue.contains("6th")) {
+    else if(searchValue.includes("sixth") || searchValue.includes(" 6 ") || searchValue.includes("6th")) {
         return 6;
     }
-    else if(searchValue.contains("seventh") || searchValue.contains(" 7 ") || searchValue.contains("7th")) {
+    else if(searchValue.includes("seventh") || searchValue.includes(" 7 ") || searchValue.includes("7th")) {
         return 7;
     }
-    else if(searchValue.contains("eighth") || searchValue.contains(" 8 ") || searchValue.contains("8th")) {
+    else if(searchValue.includes("eighth") || searchValue.includes(" 8 ") || searchValue.includes("8th")) {
         return 8;
     }
-    else if(searchValue.contains("ninth") || searchValue.contains(" 9 ") || searchValue.contains("9th")) {
+    else if(searchValue.includes("ninth") || searchValue.includes(" 9 ") || searchValue.includes("9th")) {
         return 9;
     }
-    else if(searchValue.contains("tenth") || searchValue.contains(" 10 ") || searchValue.contains("10th")) {
+    else if(searchValue.includes("tenth") || searchValue.includes(" 10 ") || searchValue.includes("10th")) {
         return 10;
     }
-    else if(searchValue.contains("eleventh") || searchValue.contains(" 11 ") || searchValue.contains("11th")) {
+    else if(searchValue.includes("eleventh") || searchValue.includes(" 11 ") || searchValue.includes("11th")) {
         return 11;
     }
-    else if(searchValue.contains("twelfth") || searchValue.contains(" 12 ") || searchValue.contains("12th")) {
+    else if(searchValue.includes("twelfth") || searchValue.includes(" 12 ") || searchValue.includes("12th")) {
         return 12;
     }
-    else if(searchValue.toLowerCase().contains("pre")) {
+    else if(searchValue.toLowerCase().includes("pre")) {
         return -1;
     }
-    else if(searchValue.toLowerCase().contains("kinder")) {
+    else if(searchValue.toLowerCase().includes("kinder")) {
         return 0;
     }
+    return null;
 }
 
 //function subject parsing
 function parseSubject(searchValue) {
-    if(searchValue.toLowerCase().contains("math")
-        || searchValue.toLowerCase().contains("geom")
-            || searchValue.toLowerCase().contains("calc")
-                || searchValue.toLowerCase().contains("algebra")) {
+    if(searchValue.toLowerCase().includes("math")
+        || searchValue.toLowerCase().includes("geom")
+            || searchValue.toLowerCase().includes("calc")
+                || searchValue.toLowerCase().includes("algebra")) {
         return "MATH";
     }
-    else if(searchValue.toLowerCase().contains("english") 
-        || searchValue.toLowerCase().contains("lit")) {
+    else if(searchValue.toLowerCase().includes("english") 
+        || searchValue.toLowerCase().includes("lit")) {
         return "ENGLISH";
     }
-    else if(searchValue.toLowerCase().contains("history")) {
+    else if(searchValue.toLowerCase().includes("history")) {
         return "HISTORY";
     }
-    else if(searchValue.toLowerCase().contains("foreign") 
-        || searchValue.toLowerCase().contains("spanish")
-            || searchValue.toLowerCase().contains("french")) {
+    else if(searchValue.toLowerCase().includes("foreign") 
+        || searchValue.toLowerCase().includes("spanish")
+            || searchValue.toLowerCase().includes("french")) {
         return "FOREIGNLANGUAGE";
     }
-    else if(searchValue.toLowerCase().contains("science") 
-        || searchValue.toLowerCase().contains("chemistry")
-            || searchValue.toLowerCase().contains("physics")
-                || searchValue.toLowerCase().contains("bio")) {
+    else if(searchValue.toLowerCase().includes("science") 
+        || searchValue.toLowerCase().includes("chemistry")
+            || searchValue.toLowerCase().includes("physics")
+                || searchValue.toLowerCase().includes("bio")) {
         return "SCIENCE";
     }
+    return null;
 }
