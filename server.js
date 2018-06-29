@@ -1,5 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var routes = require("./routes/apiRoutes");
 
 
 var app = express();
@@ -11,6 +12,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use(express.static("public"));
+
+require("./routes/apiRoutes")(app);
+//app.use(routes);
 
 //don't forget to put routes here
 
