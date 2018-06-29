@@ -12,6 +12,11 @@ app.use(bodyParser.json());
 
 app.use(express.static("public"));
 
+// Set Handlebars.
+const exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 //don't forget to put routes here
 
 db.sequelize.sync({force:true}).then(function() {
