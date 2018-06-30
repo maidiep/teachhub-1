@@ -4,6 +4,7 @@
   "description": "teachhub",
   "main": "index.js",
   "scripts": {
+    "start": "node server",
     "test": "mocha"
   },
   "repository": {
