@@ -11,6 +11,7 @@ module.exports = function(sequelize, DataTypes) {
       ratingQuantity: DataTypes.INTEGER,
       id: {
         type: DataTypes.INTEGER,
+        autoIncrement: true,
         primaryKey: true
       }
     });

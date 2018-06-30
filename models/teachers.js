@@ -5,6 +5,7 @@ module.exports = function(sequelize, DataTypes) {
       avgRating: DataTypes.FLOAT,
       id: {
         type: DataTypes.INTEGER,
+        autoIncrement: true,
         primaryKey: true
       }
     });

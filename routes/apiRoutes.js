@@ -60,11 +60,15 @@ module.exports = function(app) {
     if (sort === "ascending") {
       db.Lesson.findAll({
         order: [[col, "ASC"]]
-      }).then(function(lessons) {});
+      }).then(function(lessons) {
+        res.json(lessons);
+      });
     } else {
       db.Lesson.findAll({
         order: [[col, "DESC"]]
-      }).then(function(lessons) {});
+      }).then(function(lessons) {
+        res.json(lessons);
+      });
     }
   });
 
