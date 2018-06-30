@@ -1,3 +1,4 @@
+require("dotenv").load();
 console.log(process.env);
 exports.dbConfig = {
   development: {
