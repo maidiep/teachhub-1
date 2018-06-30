@@ -16,12 +16,6 @@
         crossorigin="anonymous">
 
     <script src="../assets/js/results.js"></script>
-
-    <title>teachHub</title>
-</head>
-
-<body>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -31,12 +25,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
+    <title>teachHub</title>
+</head>
+
+<body>
     <br>
     <h1 class="text-center">
         <i class="fas fa-chalkboard-teacher"></i>
         TeachHub
     </h1>
     <br>
+    <!--Main container-->
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -62,66 +61,79 @@
                         </ul>
                     </div>
                 </nav>
-                </div>
-                </div>
-                </div>
-            <br>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h2>
-                                Filter
-                            </h2>
-                            <br>
-                            <form method="post" action="/Tests/Post/">
-                                <input type="submit" value="Submit" id="filterSubmit"/>      
-                                <fieldset>      
-                                        <legend>Subject</legend>    
-                                        <select name="subject" id="subjectSelect"> 
-                                                <option value="">Choose a Subject</option>
-                                                <option value="math">Math</option>
-                                                <option value="ela">ELA</option>
-                                                <option value="science">Science</option>
-                                                <option value="socialstudies">Social Studies</option>
-                                                <option value="computerscience">Computer Science</option>
-                                        </select>       
-                                        <br><br><br>
-                                        <legend>Grade</legend>    
-                                        <select name="grade" id="gradeSelect">
-                                                <option value="">Choose a Grade</option>
-                                                <option value="k">K</option>
-                                                <option value="1">1st</option>
-                                                <option value="2">2nd</option>
-                                                <option value="3">3rd</option>
-                                                <option value="4">4th</option>
-                                                <option value="5">5th</option>
-                                                <option value="6">6th</option>
-                                                <option value="7">7th</option>
-                                                <option value="8">8th</option>
-                                                <option value="9">9th</option>
-                                                <option value="10">10th</option>
-                                                <option value="11">11th</option>
-                                                <option value="12">12th</option>
-                                              </select>  
-                                        <br><br><br>         
-                                </fieldset>      
-                        </form>
-                        </div>
-                    </div>
-
-                    <div class="card text-white bg-dark mb-3" style="max-width: 22rem;">
-                        <div class="card-header">Science</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Secondary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-warning">More Info</a>
-                        </div>
-                    </div>
             </div>
         </div>
+    </div>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>
+                    Filter
+                </h2>
+                <br>
+                <form method="post" action="/Tests/Post/">
+                    <input type="submit" value="Submit" id="filterSubmit"/>      
+                    <fieldset>      
+                        <select name="subject" id="subjectSelect"> 
+                                <option value="">Choose a Subject</option>
+                                <option value="math">Math</option>
+                                <option value="ela">ELA</option>
+                                <option value="science">Science</option>
+                                <option value="socialstudies">Social Studies</option>
+                                <option value="computerscience">Computer Science</option>
+                        </select>
 
+                        <br><br><br>
 
-
+                        <legend>Grade</legend>    
+                        <select name="grade" id="gradeSelect">
+                            <option value="">Choose a Grade</option>
+                            <option value="k">K</option>
+                            <option value="1">1st</option>
+                            <option value="2">2nd</option>
+                            <option value="3">3rd</option>
+                            <option value="4">4th</option>
+                            <option value="5">5th</option>
+                            <option value="6">6th</option>
+                            <option value="7">7th</option>
+                            <option value="8">8th</option>
+                            <option value="9">9th</option>
+                            <option value="10">10th</option>
+                            <option value="11">11th</option>
+                            <option value="12">12th</option>
+                        </select>  
+                        <br><br><br>         
+                    </fieldset>      
+                </form>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card text-white bg-dark mb-3">
+                            <div class="card-header">Math</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Secondary card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-warning">More Info</a>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-12">
+                        <div class="card text-white bg-dark mb-3">
+                            <div class="card-header">Science</div>
+                            <div class="card-body">
+                                <h5 class="card-title">Secondary card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-warning">More Info</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

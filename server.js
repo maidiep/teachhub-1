@@ -1,7 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var routes = require("./routes/apiRoutes");
-
+require('dotenv').load();
 
 var app = express();
 var PORT = process.env.PORT || 3060;
@@ -13,8 +13,11 @@ app.use(bodyParser.json());
 
 app.use(express.static("public"));
 
+
 require("./routes/apiRoutes")(app);
-//app.use(routes);
+const exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 //don't forget to put routes here
 
