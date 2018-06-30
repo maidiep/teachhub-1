@@ -15,16 +15,16 @@ function searchBoy(e) {
 
 //actual ajax to submit to the backend
 function submitSearch(grade,subject) {
-    let searchQuery = {
-        grade: grade,
-        subject: subject
-    }
-    $.ajax("/api/search/" + id, {
-        type: "POST",
-        data: searchQuery
+    let id = "/api/v1/lessons?";
+    id = id + "grade=" + (grade||"e") + "&";
+    id = id + "subject=" + (subject||"e") + "&";
+    id += "rating=e";
+
+    $.ajax(id, {
+        type: "get"
       }).then(
         function() {
-          console.log("SUCCESS");
+          window.location.replace("." + id);
         }
     );
 }

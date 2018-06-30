@@ -1,5 +1,4 @@
 require("dotenv").load();
-console.log(process.env);
 exports.dbConfig = {
   development: {
     username: process.env.DEVELOPMENT_USERNAME,
