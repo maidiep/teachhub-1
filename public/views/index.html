@@ -17,6 +17,10 @@
 
         <script src="../assets/js/index.js"></script>
 
+    <!-- google login -->
+    <meta name="google-signin-client_id" content="783539858113-8k266ms99fpol9gcnttp9844sho8u8bl.apps.googleusercontent.com">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">    
+
     <title>teachHub</title>
 </head>
 
@@ -32,10 +36,12 @@
         crossorigin="anonymous"></script>
 
 <br>
+    <div class="title">
         <h1 class="text-center">
                 <i class="fas fa-chalkboard-teacher"></i>
                 TeachHub
-            </h1>   
+            </h1>  
+    </div>         
     <br>
     <div class="container-fluid">
         <div class="row">
@@ -56,15 +62,18 @@
                             </li>
                         </ul>
                         <ul class="navbar-nav ml-md-auto">
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" data-toggle="modal" data-target="#loginPopUp" href="#">Login
                                 </a>
-                            </li>
+                            </li> -->
 
-                            <li class="nav-item">
+                            <div class="g-signin2"></div>
+
+
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" data-toggle="modal" data-target=#signUpPopUp href="#">SignUp
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </nav>
@@ -158,9 +167,8 @@
         <div><img src="../assets/img/siouxfalls.jpeg" alt="cms" width="50%"></div>
         <div><img src="../assets/img/cms.png" alt="cms" width="75%"></div>
         <div><img src="../assets/img/lex1.jpg" alt="lex" width="75%"></div>
-        <div><img src="../assets/img/onslow.png" alt="onslow" width="100%"></div>
-
-        <div>Item 5</div>
+        <div><img src="../assets/img/onslow.png" alt="onslow" width="%"65></div>
+        <div><img src="../assets/img/boston.png" alt="onslow" width="70%"></div>
       </div>
 
       <br><br><br><br>
@@ -171,9 +179,29 @@
 					</div>
 		</div> -->
 
+        <script>
+                function onSuccess(googleUser) {
+                  console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+                }
+                function onFailure(error) {
+                  console.log(error);
+                }
+                function renderButton() {
+                  gapi.signin2.render('my-signin2', {
+                    'scope': 'profile email',
+                    'width': 240,
+                    'height': 50,
+                    'longtitle': true,
+                    'theme': 'dark',
+                    'onsuccess': onSuccess,
+                    'onfailure': onFailure
+                  });
+                }
+              </script>
 
-
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
 </body>
+
 
 </html>
