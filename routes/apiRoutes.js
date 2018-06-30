@@ -5,27 +5,26 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
       res.render("./partials/pages/index", null);
     });
+  
   // get lessons by id
-
-  app.get("/api/lessons/id/:id", function(req, res) {
+  app.get("/api/lesson/id/:id", function(req, res) {
     db.Lesson.findAll({
       where: {
         id: req.params.id
       }
     }).then(function(lessons) {
-      res.json(lessons);
+      res.render("./partials/pages/product",lessons);
     });
   });
 
   //get lessons by name ex: trigonometry
-
   app.get("/api/lessons/name/:name", function(req, res) {
     db.Lesson.findAll({
       where: {
         name: req.params.name
       }
     }).then(function(lessons) {
-      res.json(lessons);
+      res.render("./partials/pages/results",lessons);
     });
   });
 
@@ -37,7 +36,7 @@ module.exports = function(app) {
         subject: req.params.subject
       }
     }).then(function(lessons) {
-      res.json(lessons);
+      res.render("./partials/pages/results",lessons);
     });
   });
 
@@ -76,6 +75,24 @@ module.exports = function(app) {
     }
   });
 
+  app.get("/api/v1/lessons/", function(req, res) {
+    let queryObj = {};
+    if(req.query.grade != "e" && req.query.grade) {
+      queryObj["gradeLevel"] = parseInt(req.query.grade);
+    }
+    if(req.query.subject != "e" && req.query.subject) {
+      queryObj["subject"] = req.query.subject.toLowerCase();
+    }
+    if(req.query.rating !="e" && req.query.rating) {
+      queryObj["avgRating"] = req.query.rating;
+    }
+    db.Lesson.findAll({
+      where: queryObj
+    }).then(function(lessons) {
+      console.log("berk berk",lessons);
+      res.render("./partials/pages/results",lessons);
+    });
+  });
   // get lessons sorted by ratingQuantity
 
   // /api/lessons?sort
