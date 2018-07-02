@@ -17,7 +17,7 @@ p {
     padding-top: 30px;
     padding-bottom: 30px;
     opacity: .75;
-    min-height: 300px
+    min-height: 400px
  }
 
  .grid {
@@ -26,5 +26,6 @@ p {
     grid-gap: 10px;
     margin: auto;
 }
+
 
 

@@ -26,6 +26,8 @@
         crossorigin="anonymous"></script>
 
     <title>resultsPage</title>
+    <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
+
 </head>
 
 <body>
@@ -45,14 +47,14 @@
                     </button>
                     <a class="navbar-brand" href="./index.html">Home</a>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="navbar-nav">
+                        <!-- <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link" href="#">About</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">FAQ</a>
                             </li>
-                        </ul>
+                        </ul> -->
                         <ul class="navbar-nav ml-md-auto">
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="modal" data-target=#signUpPopUp href="#">Search Results
@@ -75,7 +77,7 @@
                 <form method="post" action="/Tests/Post/">
                     <!-- <input type="submit" value="Submit" id="filterSubmit"/>       -->
                     <fieldset>    
-                            <legend>Subject</legend>  
+                            <!-- <legend>Subject</legend>   -->
                         <select type=button class="btn btn-danger" data-toggle="dropdown" name="subject" id="subjectSelect"> 
                                 <option value="">Filter by Subject</option>
                                 <option value="math">Math</option>
@@ -87,7 +89,7 @@
 
                         <br><br><br>
 
-                        <legend>Grade</legend>    
+                        <!-- <legend>Grade</legend>     -->
                         <select type=button class="btn btn-danger" name="grade" id="gradeSelect">
                             <option value="">Filter by Grade</option>
                             <option value="k">K</option>
