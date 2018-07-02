@@ -8,13 +8,25 @@ module.exports = function(app) {
   
   // get lessons by id
   app.get("/api/lesson/id/:id", function(req, res) {
+    let lessons = {};
+    let reviews = {};
     db.Lesson.findAll({
+      raw:true,
       where: {
         id: req.params.id
       }
-    }).then(function(lessons) {
-      res.render("./partials/pages/product",lessons);
+    }).then(function(retVal) {
+      lessons=retVal;
     });
+    db.Rating.findAll({
+      raw:true,
+      where: {
+        LessonId: req.params.id
+      }
+    }).then(function(retVal){
+      reviews=retVal;
+      res.render("./partials/pages/product",{lessons:lessons[0],reviews:reviews})
+    })
   });
 
   //get lessons by name ex: trigonometry
@@ -56,26 +68,26 @@ module.exports = function(app) {
   // /api/lessons?sort=ascending&col=avgRating
   // /api/lessons?sort=descending&col=avgRating
 
-  app.get("/api/lessons", function(req, res) {
-    var sort = req.query.sort;
-    var col = req.query.col;
+  // app.get("/api/lessons", function(req, res) {
+  //   var sort = req.query.sort;
+  //   var col = req.query.col;
 
-    if (sort === "ascending") {
-      db.Lesson.findAll({
-        order: [[col, "ASC"]]
-      }).then(function(lessons) {
-        res.json(lessons);
-      });
-    } else {
-      db.Lesson.findAll({
-        order: [[col, "DESC"]]
-      }).then(function(lessons) {
-        res.json(lessons);
-      });
-    }
-  });
+  //   if (sort === "ascending") {
+  //     db.Lesson.findAll({
+  //       order: [[col, "ASC"]]
+  //     }).then(function(lessons) {
+  //       res.json(lessons);
+  //     });
+  //   } else {
+  //     db.Lesson.findAll({
+  //       order: [[col, "DESC"]]
+  //     }).then(function(lessons) {
+  //       res.json(lessons);
+  //     });
+  //   }
+  // });
 
-  app.get("/api/v1/lessons/", function(req, res) {
+  app.get("/api/lessons/", function(req, res) {
     let queryObj = {};
     if(req.query.grade != "e" && req.query.grade) {
       queryObj["gradeLevel"] = parseInt(req.query.grade);
@@ -87,10 +99,10 @@ module.exports = function(app) {
       queryObj["avgRating"] = req.query.rating;
     }
     db.Lesson.findAll({
+      raw:true,
       where: queryObj
     }).then(function(lessons) {
-      console.log("berk berk",lessons);
-      res.render("./partials/pages/results",lessons);
+      res.render("./partials/pages/results",{lessons:lessons});
     });
   });
   // get lessons sorted by ratingQuantity
