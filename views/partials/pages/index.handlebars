@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Francois+One" rel="stylesheet">
-    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -13,16 +13,19 @@
         crossorigin="anonymous">
 
     <script src="./assets/js/index.js"></script>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
+    <!-- google login -->
+    <meta name="google-signin-client_id" content="783539858113-8k266ms99fpol9gcnttp9844sho8u8bl.apps.googleusercontent.com">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">    
+
     <title>teachHub</title>
+    <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
 </head>
 
 <body>
@@ -44,27 +47,29 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">About</a>
+                                <a class="nav-link" href="./about.html">About</a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="#">FAQ</a>
-                            </li>
+                            </li> -->
                         </ul>
                         <ul class="navbar-nav ml-md-auto">
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" data-toggle="modal" data-target="#loginPopUp" href="#">Login
                                 </a>
-                            </li>
+                            </li> -->
 
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="modal" data-target="#signUpPopUp" href="#">SignUp
+                            <div class="g-signin2"></div>
+
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" data-toggle="modal" data-target=#signUpPopUp href="#">SignUp
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </nav>
                 
-                <div class="jumbotron"> 
+                <div id="homePage" class="jumbotron"> 
                         <p class="text-right">A free open source lesson plan database for K-12 educators!
                             </p>
                             <p> 
@@ -146,10 +151,45 @@
         </div>
     </div>
     <!-- end of SignUp Modal -->
+    <!-- images -->
+    <div id="schoolDistricts" class="grid med-col-12 text-center">
+        <div><img src="../assets/img/siouxfalls.jpeg" alt="cms" width="50%"></div>
+        <div><img src="../assets/img/cms.png" alt="cms" width="75%"></div>
+        <div><img src="../assets/img/lex1.jpg" alt="lex" width="75%"></div>
+        <div><img src="../assets/img/onslow.png" alt="onslow" width="%"65></div>
+        <div><img src="../assets/img/boston.png" alt="onslow" width="70%"></div>
+    </div>
+
+    <br><br><br><br>
+
+    <!-- footer -->
+    <hr>
 
     <div class="footer">
-        <div class="col-md-12" id="footer">
-            <p class="text-center" id="copyright">&copy; 2018 UNCC Coding Bootcamp | Project 2 | Team Boston</p>
-        </div>
+			<div class="col-md-12" id="footer">
+                <p class="text-center" id="copyright">&copy; 2018 UNCC Coding Bootcamp | Project 2 | Team Boston</p>
+            </div>
     </div>
+
+    <script>
+            function onSuccess(googleUser) {
+                console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+            }
+            function onFailure(error) {
+                console.log(error);
+            }
+            function renderButton() {
+                gapi.signin2.render('my-signin2', {
+                'scope': 'profile email',
+                'width': 240,
+                'height': 50,
+                'longtitle': true,
+                'theme': 'dark',
+                'onsuccess': onSuccess,
+                'onfailure': onFailure
+                });
+            }
+            </script>
+
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 </body>
