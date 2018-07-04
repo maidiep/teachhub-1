@@ -26,6 +26,8 @@
 
     <title>teachHub</title>
     <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
 </head>
 
 <body>
@@ -53,13 +55,15 @@
                                 <a class="nav-link" href="#">FAQ</a>
                             </li> -->
                         </ul>
-                        <ul class="navbar-nav ml-md-auto">
+                        <ul id="rightSideNav" class="navbar-nav ml-md-auto">
                             <!-- <li class="nav-item">
                                 <a class="nav-link" data-toggle="modal" data-target="#loginPopUp" href="#">Login
                                 </a>
                             </li> -->
 
-                            <div class="g-signin2"></div>
+                            <div>
+                                <a id="signInBtn" class="g-signin2" data-onsuccess="onSignIn"></a>
+                            </div>
 
                             <!-- <li class="nav-item">
                                 <a class="nav-link" data-toggle="modal" data-target=#signUpPopUp href="#">SignUp
@@ -172,14 +176,22 @@
     </div>
 
     <script>
-            function onSuccess(googleUser) {
+            function onSignIn(googleUser) {
                 console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+                console.log("ID: " + googleUser.getBasicProfile().getId());
+                console.log("Name: " + googleUser.getBasicProfile().getName());
+                console.log("Image URL: " + googleUser.getBasicProfile().getImageUrl());
+                console.log("Email: " + googleUser.getBasicProfile().getEmail());
+                $("#signInBtn").hide();
+                var userName = $("<div>");
+                userName.text(googleUser.getBasicProfile().getName());
+                $("#rightSideNav").append(userName)
             }
-            function onFailure(error) {
+            function onFailure(error) { 
                 console.log(error);
             }
             function renderButton() {
-                gapi.signin2.render('my-signin2', {
+                gapi.signin2.render('g-signin2', {
                 'scope': 'profile email',
                 'width': 240,
                 'height': 50,
@@ -191,5 +203,4 @@
             }
             </script>
 
-    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 </body>
