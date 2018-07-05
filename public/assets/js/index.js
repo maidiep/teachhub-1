@@ -133,14 +133,14 @@ function parseSubject(searchValue) {
   ) {
     return "FOREIGNLANGUAGE";
   } else if (
-    searchValue.toLowerCase().includes("science") ||
+    // searchValue.toLowerCase().includes("science") ||
     searchValue.toLowerCase().includes("chemistry") ||
     searchValue.toLowerCase().includes("physics") ||
     searchValue.toLowerCase().includes("bio")
   ) {
     return "SCIENCE";
   } else if (searchValue.toLowerCase().includes("computerscience")) {
-    return "computerscience";
+    return "compsci";
   }
   return null;
 }
