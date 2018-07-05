@@ -26,6 +26,8 @@
 
     <title>teachHub</title>
     <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/3.0.1/css/primer.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css">
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
 </head>
@@ -63,7 +65,10 @@
 
                             <div>
                                 <a id="signInBtn" class="g-signin2" data-onsuccess="onSignIn"></a>
+                                
                             </div>
+
+                            
 
                             <!-- <li class="nav-item">
                                 <a class="nav-link" data-toggle="modal" data-target=#signUpPopUp href="#">SignUp
@@ -182,10 +187,23 @@
                 console.log("Name: " + googleUser.getBasicProfile().getName());
                 console.log("Image URL: " + googleUser.getBasicProfile().getImageUrl());
                 console.log("Email: " + googleUser.getBasicProfile().getEmail());
+
+                var signOutBtn = $("<span>");
+                signOutBtn.addClass("octicon octicon-sign-out");
+
+                var singOutLink = $("<a>");
+                singOutLink.attr("href", "#");
+                singOutLink.append(signOutBtn);
+                singOutLink.attr("role", "button");
+                singOutLink.on("click", function() {
+                    signOutFn();
+                });
+
                 $("#signInBtn").hide();
                 var userName = $("<div>");
-                userName.text(googleUser.getBasicProfile().getName());
-                $("#rightSideNav").append(userName)
+                userName.text(googleUser.getBasicProfile().getName() + "  ");
+                $("#rightSideNav").append(userName);
+                $("#rightSideNav").append(singOutLink);
             }
             function onFailure(error) { 
                 console.log(error);

@@ -25,7 +25,7 @@
 
     <!-- google login -->
     <meta name="google-signin-client_id" content="783539858113-8k266ms99fpol9gcnttp9844sho8u8bl.apps.googleusercontent.com">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
     <title>teachHub</title>
     <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
@@ -42,13 +42,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
-<br>
+    <br>
     <div class="title">
         <h1 class="text-center">
-                <i class="fas fa-chalkboard-teacher"></i>
-                TeachHub
-            </h1>  
-    </div>         
+            <i class="fas fa-chalkboard-teacher"></i>
+            TeachHub
+        </h1>
+    </div>
     <br>
     <div class="container-fluid">
         <div class="row">
@@ -83,11 +83,11 @@
                         </ul>
                     </div>
                 </nav>
-                
-                <div id="homePage" class="jumbotron"> 
-                        <p class="text-right">A free open source lesson plan database for K-12 educators!
-                            </p>
-                            <p> 
+
+                <div id="homePage" class="jumbotron">
+                    <p class="text-right">A free open source lesson plan database for K-12 educators!
+                    </p>
+                    <p>
                         <form class="form-inline float-right">
                             <input id="searchBox" class="form-control mr-sm-2" type="text" />
                             <button id="searchButton" class="btn btn-danger my-2 my-sm-0" type="submit">
@@ -99,7 +99,7 @@
             </div>
         </div>
     </div>
-<br>
+    <br>
 
     <!-- Login Modal -->
     <div class="modal fade" id="loginPopUp">
@@ -113,12 +113,13 @@
                 <!-- body -->
                 <div class="modal-body">
                     <form role="form">
-                            <i class="fas fa-envelope"></i>
-                            Email
-                            <input type="email" autocomplete=off class="form-control"> <br>
-                            <i class="fas fa-unlock-alt"></i>
-                            Password
-                            <input type="password" autocomplete=off class="form-control">
+                        <i class="fas fa-envelope"></i>
+                        Email
+                        <input type="email" autocomplete=off class="form-control">
+                        <br>
+                        <i class="fas fa-unlock-alt"></i>
+                        Password
+                        <input type="password" autocomplete=off class="form-control">
                     </form>
                 </div>
                 <!-- submit -->
@@ -144,12 +145,14 @@
                     <form role="form">
                         <div class="form-group">
                             First Name
-                            <input type="text" autofocus autocomplete=off class="form-control"> <br>
-                            Last Name
-                            <input type="text" autocomplete=off class="form-control"> <br>
+                            <input type="text" autofocus autocomplete=off class="form-control">
+                            <br> Last Name
+                            <input type="text" autocomplete=off class="form-control">
+                            <br>
                             <i class="fas fa-envelope"></i>
                             Email
-                            <input type="email" autocomplete=off class="form-control"> <br>
+                            <input type="email" autocomplete=off class="form-control">
+                            <br>
                             <i class="fas fa-unlock-alt"></i>
                             Password
                             <input type="password" autocomplete=off class="form-control">
@@ -158,57 +161,70 @@
                 </div>
                 <!-- submit -->
                 <div class="modal-footer">
-                    
+
                     <button class="btn btn-success btn-block">Sign Me Up</button>
-                
+
                 </div>
             </div>
         </div>
     </div>
     <!-- end of SignUp Modal -->
-<br>
-<!-- images -->
-<div id="schoolDistricts" class="grid med-col-12 text-center">
-        <div><img src="../assets/img/siouxfalls.jpeg" alt="cms" width="50%"></div>
-        <div><img src="../assets/img/cms.png" alt="cms" width="75%"></div>
-        <div><img src="../assets/img/lex1.jpg" alt="lex" width="75%"></div>
-        <div><img src="../assets/img/onslow.png" alt="onslow" width="%"65></div>
-        <div><img src="../assets/img/boston.png" alt="onslow" width="70%"></div>
-      </div>
+    <br>
+    <!-- images -->
+    <div id="schoolDistricts" class="grid med-col-12 text-center">
+        <div>
+            <img src="../assets/img/siouxfalls.jpeg" alt="cms" width="50%">
+        </div>
+        <div>
+            <img src="../assets/img/cms.png" alt="cms" width="75%">
+        </div>
+        <div>
+            <img src="../assets/img/lex1.jpg" alt="lex" width="75%">
+        </div>
+        <div>
+            <img src="../assets/img/onslow.png" alt="onslow" width="%" 65>
+        </div>
+        <div>
+            <img src="../assets/img/boston.png" alt="onslow" width="70%">
+        </div>
+    </div>
 
-      <br><br><br><br>
-      
+    <br>
+    <br>
+    <br>
+    <br>
+
 
 
     <!-- footer -->
     <hr>
     <div class="footer">
-			<div class="col-md-12" id="footer">
-					<p class="text-center" id="copyright">&copy; 2018 UNCC Coding Bootcamp | Project 2 | Team Boston</p>
-					</div>
-		</div>
+        <div class="col-md-12" id="footer">
+            <p class="text-center" id="copyright">&copy; 2018 UNCC Coding Bootcamp | Project 2 | Team Boston</p>
+        </div>
+    </div>
 
-        <script>
-                function onSuccess(googleUser) {
-                  console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-                }
-                function onFailure(error) {
-                  console.log(error);
-                }
-                function renderButton() {
-                  gapi.signin2.render('my-signin2', {
-                    'scope': 'profile email',
-                    'width': 240,
-                    'height': 50,
-                    'longtitle': true,
-                    'theme': 'dark',
-                    'onsuccess': onSuccess,
-                    'onfailure': onFailure
-                  });
-                }
-              </script>
+    <script>
+        function onSuccess(googleUser) {
+            console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+        }
+        function onFailure(error) {
+            console.log(error);
+        }
+        function renderButton() {
+            gapi.signin2.render('my-signin2', {
+                'scope': 'profile email',
+                'width': 240,
+                'height': 50,
+                'longtitle': true,
+                'theme': 'dark',
+                'onsuccess': onSuccess,
+                'onfailure': onFailure
+            });
+        }
+    </script>
 
-        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
 </body>
 
