@@ -15,7 +15,7 @@ function searchBoy(e) {
 
 //actual ajax to submit to the backend
 function submitSearch(grade, subject) {
-  let id = "/api/lessons?";
+  let id = "/api/lessons.html?";
   id = id + "grade=" + (grade || "e") + "&";
   id = id + "subject=" + (subject || "e") + "&";
   id += "rating=e";

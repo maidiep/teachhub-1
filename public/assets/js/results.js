@@ -20,16 +20,17 @@ function clickboy(e) {
 }
 
 //actual ajax to submit to the backend
-function submitSearch(grade, subject, stars) {
+function submitSearch(grade, subject) {
+  console.log("Searchin with ", grade, subject);
   let searchQuery = {
     grade: grade,
-    subject: subject,
-    stars: stars
+    subject: subject
+    // stars: stars
   };
-  $.ajax("/api/lessons/", {
-    type: "POST",
-    data: searchQuery
-  }).then(function() {
+  $.ajax("/search/lessons?" + "grade=" + grade + "subject=" + subject, {
+    type: "GET"
+  }).then(function(res) {
+    // console.log(res);
     console.log("SUCCESS");
   });
 }
