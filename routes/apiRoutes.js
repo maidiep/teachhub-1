@@ -26,17 +26,17 @@ module.exports = function(app) {
       }
     }).then(function(retVal) {
       lessons = retVal;
-    });
-    db.Rating.findAll({
-      raw: true,
-      where: {
-        LessonId: req.params.id
-      }
-    }).then(function(retVal) {
-      reviews = retVal;
-      res.render("./partials/pages/product", {
-        lessons: lessons[0],
-        reviews: reviews
+      db.Rating.findAll({
+        raw: true,
+        where: {
+          LessonId: req.params.id
+        }
+      }).then(function(retVal) {
+        reviews = retVal;
+        res.render("./partials/pages/product", {
+          lessons: lessons[0],
+          reviews: reviews
+        });
       });
     });
   });

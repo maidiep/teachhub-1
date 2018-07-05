@@ -2,6 +2,9 @@ window.onload = init;
 //Initialize all of our fields
 function init() {
   document.getElementById("filterSubmit").onclick = clickboy;
+  $("#filterSubmit").on("click", function(e) {
+    clickboy(e);
+  });
 }
 
 //good ol' click boy
@@ -23,7 +26,7 @@ function submitSearch(grade, subject, stars) {
     subject: subject,
     stars: stars
   };
-  $.ajax("/api/search/" + id, {
+  $.ajax("/api/lessons/", {
     type: "POST",
     data: searchQuery
   }).then(function() {
