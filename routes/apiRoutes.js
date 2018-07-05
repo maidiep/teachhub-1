@@ -99,7 +99,7 @@ module.exports = function(app) {
   //   }
   // });
 
-  app.get("/api/lessons/", function(req, res) {
+  app.get("/api/lessons", function(req, res) {
     let queryObj = {};
     if (req.query.grade != "e" && req.query.grade) {
       queryObj["gradeLevel"] = parseInt(req.query.grade);
@@ -115,6 +115,7 @@ module.exports = function(app) {
       where: queryObj
     }).then(function(lessons) {
       res.render("./partials/pages/results", { lessons: lessons });
+      // res.send(lessons);
     });
   });
   // get lessons sorted by ratingQuantity

@@ -15,14 +15,15 @@ function searchBoy(e) {
 
 //actual ajax to submit to the backend
 function submitSearch(grade, subject) {
-  let id = "/api/lessons.html?";
+  let id = "/api/lessons?";
   id = id + "grade=" + (grade || "e") + "&";
   id = id + "subject=" + (subject || "e") + "&";
   id += "rating=e";
 
   $.ajax(id, {
     type: "get"
-  }).then(function() {
+  }).then(function(res) {
+    console.log(res);
     window.location.replace("." + id);
   });
 }
@@ -138,6 +139,8 @@ function parseSubject(searchValue) {
     searchValue.toLowerCase().includes("bio")
   ) {
     return "SCIENCE";
+  } else if (searchValue.toLowerCase().includes("computerscience")) {
+    return "computerscience";
   }
   return null;
 }
