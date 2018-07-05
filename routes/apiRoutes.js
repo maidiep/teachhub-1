@@ -3,30 +3,42 @@ var db = require("../models");
 module.exports = function(app) {
   //landing page
   app.get("/", function(req, res) {
-      res.render("./partials/pages/index", null);
-    });
-  
+    res.render("./partials/pages/index", null);
+  });
+
+  app.get("/about.html", function(req, res) {
+    res.render("./partials/pages/about", null);
+  });
+
+  app.get("/index.html", function(req, res) {
+    console.log("rendering index.handlebars");
+    res.render("./partials/pages/index", null);
+  });
+
   // get lessons by id
   app.get("/api/lesson/id/:id", function(req, res) {
     let lessons = {};
     let reviews = {};
     db.Lesson.findAll({
-      raw:true,
+      raw: true,
       where: {
         id: req.params.id
       }
     }).then(function(retVal) {
-      lessons=retVal;
+      lessons = retVal;
     });
     db.Rating.findAll({
-      raw:true,
+      raw: true,
       where: {
         LessonId: req.params.id
       }
-    }).then(function(retVal){
-      reviews=retVal;
-      res.render("./partials/pages/product",{lessons:lessons[0],reviews:reviews})
-    })
+    }).then(function(retVal) {
+      reviews = retVal;
+      res.render("./partials/pages/product", {
+        lessons: lessons[0],
+        reviews: reviews
+      });
+    });
   });
 
   //get lessons by name ex: trigonometry
@@ -36,7 +48,7 @@ module.exports = function(app) {
         name: req.params.name
       }
     }).then(function(lessons) {
-      res.render("./partials/pages/results",lessons);
+      res.render("./partials/pages/results", lessons);
     });
   });
 
@@ -48,7 +60,7 @@ module.exports = function(app) {
         subject: req.params.subject
       }
     }).then(function(lessons) {
-      res.render("./partials/pages/results",lessons);
+      res.render("./partials/pages/results", lessons);
     });
   });
 
@@ -89,20 +101,20 @@ module.exports = function(app) {
 
   app.get("/api/lessons/", function(req, res) {
     let queryObj = {};
-    if(req.query.grade != "e" && req.query.grade) {
+    if (req.query.grade != "e" && req.query.grade) {
       queryObj["gradeLevel"] = parseInt(req.query.grade);
     }
-    if(req.query.subject != "e" && req.query.subject) {
+    if (req.query.subject != "e" && req.query.subject) {
       queryObj["subject"] = req.query.subject.toLowerCase();
     }
-    if(req.query.rating !="e" && req.query.rating) {
+    if (req.query.rating != "e" && req.query.rating) {
       queryObj["avgRating"] = req.query.rating;
     }
     db.Lesson.findAll({
-      raw:true,
+      raw: true,
       where: queryObj
     }).then(function(lessons) {
-      res.render("./partials/pages/results",{lessons:lessons});
+      res.render("./partials/pages/results", { lessons: lessons });
     });
   });
   // get lessons sorted by ratingQuantity
