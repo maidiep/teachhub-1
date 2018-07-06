@@ -5,6 +5,19 @@ function init() {
   $("#filterSubmit").on("click", function(e) {
     clickboy(e);
   });
+
+  $(".likeBtn").on("click", function() {
+    let recordId = $(this).attr("data-recordId");
+    console.log(recordId);
+
+    $.ajax({
+      url: "/api/lesson/" + recordId + "/like",
+      type: "GET"
+    }).then(function(likeResponse) {
+      console.log(likeResponse);
+      $("#ratingQuantity" + recordId).text(likeResponse.ratingQuantity);
+    });
+  });
 }
 
 //good ol' click boy
@@ -34,6 +47,25 @@ function clickboy(e) {
 
 function parseGrade(searchValue) {
   if (
+    searchValue.includes("tenth") ||
+    searchValue.includes("10") ||
+    searchValue.includes("10th")
+  ) {
+    return 10;
+  } else if (
+    searchValue.includes("eleventh") ||
+    searchValue.includes("11") ||
+    searchValue.includes("11") ||
+    searchValue.includes("11th")
+  ) {
+    return 11;
+  } else if (
+    searchValue.includes("twelfth") ||
+    searchValue.includes("12") ||
+    searchValue.includes("12th")
+  ) {
+    return 12;
+  } else if (
     searchValue.includes("first") ||
     searchValue.includes("1") ||
     searchValue.includes("1st")
@@ -87,25 +119,6 @@ function parseGrade(searchValue) {
     searchValue.includes("9th")
   ) {
     return 9;
-  } else if (
-    searchValue.includes("tenth") ||
-    searchValue.includes("10") ||
-    searchValue.includes("10th")
-  ) {
-    return 10;
-  } else if (
-    searchValue.includes("eleventh") ||
-    searchValue.includes("11") ||
-    searchValue.includes("11") ||
-    searchValue.includes("11th")
-  ) {
-    return 11;
-  } else if (
-    searchValue.includes("twelfth") ||
-    searchValue.includes("12") ||
-    searchValue.includes("12th")
-  ) {
-    return 12;
   } else if (searchValue.toLowerCase().includes("pre")) {
     return -1;
   } else if (searchValue.toLowerCase().includes("kinder")) {

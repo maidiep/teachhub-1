@@ -131,6 +131,18 @@ module.exports = function(app) {
   //   }
   // });
 
+  app.get("/api/lesson/:lessonId/like", function(req, res) {
+    db.Lesson.increment("ratingQuantity", {
+      where: { id: req.params.lessonId }
+    }).then(function(increResponse) {
+      db.Lesson.find({ where: { id: req.params.lessonId } }).then(function(
+        incrementedRes
+      ) {
+        res.send(incrementedRes);
+      });
+    });
+  });
+
   app.post("/api/teacher", function(req, res) {
     db.Teacher.find({
       where: {
