@@ -10,6 +10,14 @@ module.exports = function(app) {
     res.render("./partials/pages/about", null);
   });
 
+  app.get("/product.html", function(req, res) {
+    res.render("./partials/pages/product", null);
+  });
+
+  app.get("/profile.html", function(req, res) {
+    res.render("./partials/pages/profile", null);
+  });
+
   app.get("/index.html", function(req, res) {
     console.log("rendering index.handlebars");
     res.render("./partials/pages/index", null);
@@ -76,6 +84,30 @@ module.exports = function(app) {
     });
   });
 
+  //get lessons by teacherId
+
+  app.get("/api/lessons/teacherId/:teacherId", function(req, res) {
+    db.Teacher.find({
+      where: {
+        email: req.params.teacherId
+      }
+    }).then(function(teacher) {
+      if (teacher) {
+        console.log(teacher.id);
+        console.log(teacher);
+        db.Lesson.findAll({
+          where: {
+            teacherId: teacher.id
+          }
+        }).then(function(lessons) {
+          res.json(lessons);
+        });
+      } else {
+        res.send("no teacher found");
+      }
+    });
+  });
+
   // get lessons sorted by avgRating
   // /api/lessons?sort=ascending&col=avgRating
   // /api/lessons?sort=descending&col=avgRating
@@ -99,6 +131,42 @@ module.exports = function(app) {
   //   }
   // });
 
+  app.post("/api/teacher", function(req, res) {
+    db.Teacher.find({
+      where: {
+        email: req.body.email
+      }
+    }).then(function(sqlResponse) {
+      console.log(sqlResponse);
+      if (!sqlResponse) {
+        db.Teacher.create({
+          name: req.body.name,
+          email: req.body.email
+        }).then(function(resp) {
+          console.log(resp);
+          res.send(resp);
+        });
+      } else {
+        res.send(sqlResponse);
+      }
+    });
+  });
+
+  app.put("/api/lessons", function(req, res) {
+    console.log(req);
+    db.Lesson.create({
+      subject: req.body.subject,
+      gradeLevel: req.body.grade,
+      description: req.body.description,
+      materials: req.body.materials,
+      name: req.body.lessonName,
+      teacherId: req.body.teacherId
+    }).then(function(sqlResponse) {
+      console.log(sqlResponse);
+      res.send(sqlResponse);
+    });
+  });
+
   app.get("/api/lessons", function(req, res) {
     let queryObj = {};
     if (req.query.grade != "e" && req.query.grade) {
@@ -114,6 +182,7 @@ module.exports = function(app) {
       raw: true,
       where: queryObj
     }).then(function(lessons) {
+      console.log(lessons);
       res.render("./partials/pages/results", { lessons: lessons });
       // res.send(lessons);
     });

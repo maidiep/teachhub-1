@@ -23,7 +23,6 @@ function submitSearch(grade, subject) {
   $.ajax(id, {
     type: "get"
   }).then(function(res) {
-    console.log(res);
     window.location.replace("." + id);
   });
 }
@@ -149,6 +148,10 @@ function signOutFn() {
   var auth2 = gapi.auth2.getAuthInstance();
   if (auth2) {
     auth2.signOut().then(function() {
+      localStorage.removeItem("avatar");
+      localStorage.removeItem("name");
+      localStorage.removeItem("id");
+      localStorage.removeItem("email");
       console.log("User signed out.");
       location.reload();
     });

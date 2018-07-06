@@ -110,76 +110,66 @@
             </div>
         </div>
     </div>
-    
+
     <!-- start upload modal -->
     <div class="modal fade" id="uploadPopUp">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- header -->
-                    <div class="modal-header">
-                        <h3 class="modal-title">Upload a Lesson</h3>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <!-- body -->
-                    <div class="modal-body">
-                            <form method="post" action="/Tests/Post/">      
-                                <fieldset>      
-                                        <legend>Subject</legend>    
-                                        <select name="subject" id="subjectSelect"> 
-                                                <option value="">Choose a Subject</option>
-                                                <option value="math">Math</option>
-                                                <option value="ela">ELA</option>
-                                                <option value="science">Science</option>
-                                                <option value="socialstudies">Social Studies</option>
-                                                <option value="computerscience">Computer Science</option>
-                                        </select>       
-                                        <legend>Grade</legend>    
-                                        <select name="grade" id="gradeSelect">
-                                                <option value="">Choose a Grade</option>
-                                                <option value="0">K</option>
-                                                <option value="1">1st</option>
-                                                <option value="2">2nd</option>
-                                                <option value="3">3rd</option>
-                                                <option value="4">4th</option>
-                                                <option value="5">5th</option>
-                                                <option value="6">6th</option>
-                                                <option value="7">7th</option>
-                                                <option value="8">8th</option>
-                                                <option value="9">9th</option>
-                                                <option value="10">10th</option>
-                                                <option value="11">11th</option>
-                                                <option value="12">12th</option>
-                                              </select>  
-                                              <br>
-                                              <br>
-                                              <div class="form-group">
-                                                    Lesson Description
-                                                    <input type="text" class="form-control"> <br><label for="exampleInputFile">
-                                                            Upload File
-                                                        </label>
-                                                        <input type="file" class="form-control-file" id="exampleInputFile1" />
-                                                        <p class="help-block">
-                                                        </p>
-                                                </div>
-                                                <div class="form-group">
-                                                        <label for="exampleInputFile">
-                                                                Upload File
-                                                            </label>
-                                                            <input type="file" class="form-control-file" id="exampleInputFile2" />
-                                                            <p class="help-block">
-                                                            </p>
-                                                     <br>
-                                                    </div>
-                                </fieldset>      
-                        </form>
-                    </div>
-                    <!-- modal footer -->
-                    <div class="modal-footer">
-                        <button class="btn btn-success btn-block" id="submitButton">Submit Lesson</button>
-                    </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <h3 class="modal-title">Upload a Lesson</h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <form method="post" action="/Tests/Post/">
+                        <fieldset>
+                            <legend>Subject</legend>
+                            <select name="subject" id="subjectSelect">
+                                <option value="">Choose a Subject</option>
+                                <option value="math">Math</option>
+                                <option value="ela">ELA</option>
+                                <option value="science">Science</option>
+                                <option value="socialstudies">Social Studies</option>
+                                <option value="computerscience">Computer Science</option>
+                            </select>
+                            <legend>Grade</legend>
+                            <select name="grade" id="gradeSelect">
+                                <option value="">Choose a Grade</option>
+                                <option value="0">K</option>
+                                <option value="1">1st</option>
+                                <option value="2">2nd</option>
+                                <option value="3">3rd</option>
+                                <option value="4">4th</option>
+                                <option value="5">5th</option>
+                                <option value="6">6th</option>
+                                <option value="7">7th</option>
+                                <option value="8">8th</option>
+                                <option value="9">9th</option>
+                                <option value="10">10th</option>
+                                <option value="11">11th</option>
+                                <option value="12">12th</option>
+                            </select>
+                            <br>
+                            <br>
+                            <div class="form-group">
+                                Lesson Description
+                                <input type="text" class="form-control">
+                                <br>
+                                <label for="exampleInputFile">
+                                    Upload File
+                                </label>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <!-- modal footer -->
+                <div class="modal-footer">
+                    <button class="btn btn-success btn-block" id="submitButton">Submit Lesson</button>
                 </div>
             </div>
         </div>
+    </div>
 
 </body>
 

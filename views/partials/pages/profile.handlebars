@@ -17,12 +17,14 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+    <script src="./assets/js/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
+    <script src="./assets/js/profile.js"></script>
+
 
     <title>teachHub</title>
 </head>
@@ -46,21 +48,21 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">About</a>
+                                <a class="nav-link" href="./about.html">About</a>
                             </li>
-                            <li class="nav-item">
+                            {{!-- <li class="nav-item">
                                 <a class="nav-link" href="#">FAQ</a>
-                            </li>
+                            </li> --}}
                         </ul>
                         <ul class="navbar-nav ml-md-auto">
                             <li class="nav-item">
                                 <a class="nav-link" href="#">My Profile
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{!-- <li class="nav-item">
                                 <a class="nav-link" href="#">SignOut
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </nav>
@@ -74,7 +76,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <a href="https://placeholder.com">
-                            <img src="http://via.placeholder.com/300x300">
+                            <img id="avatar" src="http://via.placeholder.com/50x50">
                         </a>
                     </div>
                     <div class="container-fluid col-md-9">
@@ -84,8 +86,8 @@
                                     aria-selected="true">Upload a Lesson</a>
                                 <a class="nav-item nav-link" id="nav-myupload-tab" data-toggle="tab" href="#nav-myupload" role="tab" aria-controls="nav-profile"
                                     aria-selected="false">My Uploads</a>
-                                <a class="nav-item nav-link" id="nav-mydownload-tab" data-toggle="tab" href="#nav-mydownload" role="tab" aria-controls="nav-contact"
-                                    aria-selected="false">My Downloads</a>
+                                {{!-- <a class="nav-item nav-link" id="nav-mydownload-tab" data-toggle="tab" href="#nav-mydownload" role="tab" aria-controls="nav-contact"
+                                    aria-selected="false">My Downloads</a> --}}
                             </div>
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
@@ -95,8 +97,8 @@
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#uploadPopUp">Upload a Lesson</button>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="nav-myupload" role="tabpanel" aria-labelledby="nav-myupload-tab">Butterfly Life Cycle</div>
-                            <div class="tab-pane fade" id="nav-mydownload" role="tabpanel" aria-labelledby="nav-mydownload-tab">Introduction to Computer Science</div>
+                            <div class="tab-pane fade" id="nav-myupload" role="tabpanel" aria-labelledby="nav-myupload-tab"></div>
+                            {{!-- <div class="tab-pane fade" id="nav-mydownload" role="tabpanel" aria-labelledby="nav-mydownload-tab">Introduction to Computer Science</div> --}}
                         </div>
                     </div>
                 </div>
@@ -145,24 +147,33 @@
                                     <option value="12">12th</option>
                             </select>
                             <br><br>
+
+                            
                                 
                             <div class="form-group">
-                                Lesson Description
-                                <input type="text" class="form-control"> <br><label for="exampleInputFile">
-                                        Upload File
-                                    </label>
-                                    <input type="file" class="form-control-file" id="exampleInputFile1" />
-                                    <p class="help-block"></p>
+                                <label for="lessonName">
+                                        Lesson Name
+                                </label>
+                                <input type="text" class="form-control" id="lessonName" />
+                                <label for="description">
+                                        Lesson Description
+                                </label>
+                                <input type="text" class="form-control" id="description"> <br>
+                                <label for="exampleInputFile">
+                                        URL
+                                </label>
+                                <input type="text" class="form-control" id="exampleInputFile1" />
+                                <p class="help-block"></p>
                             </div>
 
-                            <div class="form-group">
+                            {{!-- <div class="form-group">
                                 <label for="exampleInputFile">
                                         Upload File
                                 </label>
                                 <input type="file" class="form-control-file" id="exampleInputFile2" />
                                 <p class="help-block"></p>
                                 <br>
-                            </div>
+                            </div> --}}
                             
                         </fieldset>      
                     </form>

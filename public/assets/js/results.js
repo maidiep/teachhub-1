@@ -11,7 +11,9 @@ function init() {
 function clickboy(e) {
   e.preventDefault();
   let subject = $("#subjectSelect").val();
-  let grade = $("#gradeSelect").val();
+  let grade = $("#gradeSelect")
+    .val()
+    .trim();
 
   console.log(subject);
   console.log(grade);
@@ -33,74 +35,74 @@ function clickboy(e) {
 function parseGrade(searchValue) {
   if (
     searchValue.includes("first") ||
-    searchValue.includes(" 1 ") ||
+    searchValue.includes("1") ||
     searchValue.includes("1st")
   ) {
     return 1;
   } else if (
     searchValue.includes("second") ||
-    searchValue.includes(" 2 ") ||
+    searchValue.includes("2") ||
     searchValue.includes("2nd")
   ) {
     return 2;
   } else if (
     searchValue.includes("third") ||
-    searchValue.includes(" 3 ") ||
+    searchValue.includes("3") ||
     searchValue.includes("3rd")
   ) {
     return 3;
   } else if (
     searchValue.includes("fourth") ||
-    searchValue.includes(" 4 ") ||
+    searchValue.includes("4") ||
     searchValue.includes("4th")
   ) {
     return 4;
   } else if (
     searchValue.includes("fifth") ||
-    searchValue.includes(" 5 ") ||
+    searchValue.includes("5") ||
     searchValue.includes("5th")
   ) {
     return 5;
   } else if (
     searchValue.includes("sixth") ||
-    searchValue.includes(" 6 ") ||
+    searchValue.includes("6") ||
     searchValue.includes("6th")
   ) {
     return 6;
   } else if (
     searchValue.includes("seventh") ||
-    searchValue.includes(" 7 ") ||
+    searchValue.includes("7") ||
     searchValue.includes("7th")
   ) {
     return 7;
   } else if (
     searchValue.includes("eighth") ||
-    searchValue.includes(" 8 ") ||
+    searchValue.includes("8") ||
     searchValue.includes("8th")
   ) {
     return 8;
   } else if (
     searchValue.includes("ninth") ||
-    searchValue.includes(" 9 ") ||
+    searchValue.includes("9") ||
     searchValue.includes("9th")
   ) {
     return 9;
   } else if (
     searchValue.includes("tenth") ||
-    searchValue.includes(" 10 ") ||
+    searchValue.includes("10") ||
     searchValue.includes("10th")
   ) {
     return 10;
   } else if (
     searchValue.includes("eleventh") ||
-    searchValue.includes(" 11 ") ||
+    searchValue.includes("11") ||
     searchValue.includes("11") ||
     searchValue.includes("11th")
   ) {
     return 11;
   } else if (
     searchValue.includes("twelfth") ||
-    searchValue.includes(" 12 ") ||
+    searchValue.includes("12") ||
     searchValue.includes("12th")
   ) {
     return 12;
