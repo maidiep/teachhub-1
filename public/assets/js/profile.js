@@ -20,10 +20,19 @@ function init() {
           $("#nav-myupload").append(
             "<p> Subject : " + response[i].subject + "</p>"
           );
-          var link = $("<a>");
+          var link = $("<button>");
           link.attr("href", response[i].materials);
+          link.addClass("btn btn-warning delBtn");
           link.text("Open Link");
           $("#nav-myupload").append(link);
+
+          var delBtn = $("<button>");
+          delBtn.addClass("btn btn-warning delBtn");
+          delBtn.attr("id", "del" + response[i].id);
+          delBtn.attr("data-recordId", response[i].id);
+          delBtn.text("Remove Lesson");
+          $("#nav-myupload").append(delBtn);
+
           $("#nav-myupload").append(
             "<p> Grade Level : " + response[i].gradeLevel + "</p>"
           );
@@ -41,6 +50,19 @@ function init() {
     }
   });
 }
+
+$(".delBtn").on("click", function() {
+  let recordId = $(this).attr("data-recordId");
+  console.log(recordId);
+
+  $.ajax({
+    url: "/api/lesson/" + recordId,
+    type: "DELETE"
+  }).then(function(likeResponse) {
+    console.log(likeResponse);
+    location.reload();
+  });
+});
 
 //good ol' click boy
 function clickboy(e) {
