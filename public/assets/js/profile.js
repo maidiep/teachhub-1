@@ -189,7 +189,7 @@ function parseGrade(searchValue) {
   } else if (searchValue.toLowerCase().includes("kinder")) {
     return 0;
   }
-  return null;
+  return searchValue;
 }
 
 //function subject parsing
@@ -218,13 +218,14 @@ function parseSubject(searchValue) {
     // searchValue.toLowerCase().includes("science") ||
     searchValue.toLowerCase().includes("chemistry") ||
     searchValue.toLowerCase().includes("physics") ||
-    searchValue.toLowerCase().includes("bio")
+    searchValue.toLowerCase().includes("bio") ||
+    searchValue.toLowerCase().includes("science")
   ) {
     return "SCIENCE";
   } else if (searchValue.toLowerCase().includes("computerscience")) {
     return "compsci";
   }
-  return null;
+  return searchValue;
 }
 
 //actual ajax to submit to the backend
