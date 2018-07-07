@@ -146,8 +146,8 @@ module.exports = function(app) {
   app.delete("/api/lesson/:lessonId", function(req, res) {
     db.Lesson.destroy({
       where: { id: req.params.lessonId }
-    }).then(function(increResponse) {
-      res.send(incrementedRes);
+    }).then(function() {
+      res.send();
     });
   });
 
