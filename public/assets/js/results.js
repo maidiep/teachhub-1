@@ -22,8 +22,8 @@ function init() {
     }).then(function(likeResponse) {
       console.log(likeResponse);
       $("#ratingQuantity" + recordId).text(likeResponse.ratingQuantity);
-      $("#ratingQuantity" + recordId).animate({ left: "+=10px" }, "slow");
       $("#ratingQuantity" + recordId).animate({ left: "-=10px" }, "slow");
+      $("#ratingQuantity" + recordId).animate({ left: "+=10px" }, "slow");
     });
   });
 }
