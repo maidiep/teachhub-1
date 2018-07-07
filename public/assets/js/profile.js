@@ -49,20 +49,19 @@ function init() {
       console.log("User not logged in");
     }
   });
-}
 
-$("#nav-myupload").on("click", "button.delBtn", function() {
-  let recordId = $(this).attr("data-recordId");
-  console.log(recordId);
-
-  $.ajax({
-    url: "/api/lesson/" + recordId,
-    type: "DELETE"
-  }).then(function(likeResponse) {
-    console.log(likeResponse);
-    location.reload();
+  $("#nav-myupload").on("click", "button.delBtn", function() {
+    let recordId = $(this).attr("data-recordId");
+    console.log(recordId);
+    $.ajax({
+      url: "/api/lesson/" + recordId,
+      type: "DELETE"
+    }).then(function(likeResponse) {
+      console.log(likeResponse);
+      location.reload();
+    });
   });
-});
+}
 
 //good ol' click boy
 function clickboy(e) {
