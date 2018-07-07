@@ -241,6 +241,7 @@
                 $("#rightSideNav").append(singOutLink);
 
                 $("#uploadButton").attr("disabled", false);
+                $("#avatar").attr("src", localStorage.getItem("avatar"));
 
             }
             function onFailure(error) { 
