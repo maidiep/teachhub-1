@@ -105,6 +105,7 @@ function clickboy(e) {
     lessonName === ""
   ) {
     alert("Please fill all the fields with valid values");
+    return;
   }
 
   submitSearch(grade, subject, description, file, lessonName);
