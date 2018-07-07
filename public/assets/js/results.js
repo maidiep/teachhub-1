@@ -171,6 +171,12 @@ function parseSubject(searchValue) {
 //actual ajax to submit to the backend
 function submitSearch(grade, subject) {
   console.log("Searchin with ", grade, subject);
+  if (grade === null) {
+    grade = "";
+  }
+  if (subject === null) {
+    subject = "";
+  }
   let searchQuery =
     "/api/lessons?" + "grade=" + grade + "&" + "subject=" + subject;
 
