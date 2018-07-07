@@ -22,7 +22,7 @@ function init() {
           );
           var link = $("<button>");
           link.attr("href", response[i].materials);
-          link.addClass("btn btn-warning delBtn");
+          link.addClass("btn btn-primary");
           link.text("Open Link");
           $("#nav-myupload").append(link);
 
@@ -51,7 +51,7 @@ function init() {
   });
 }
 
-$(".delBtn").on("click", function() {
+$("#nav-myupload").on("click", "button.delBtn", function() {
   let recordId = $(this).attr("data-recordId");
   console.log(recordId);
 
