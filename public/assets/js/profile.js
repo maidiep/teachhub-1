@@ -4,33 +4,41 @@ function init() {
   document.getElementById("submitButton").onclick = clickboy;
   $("#avatar").attr("src", localStorage.getItem("avatar"));
 
+  if (localStorage.getItem("email") === null) {
+    $("#uploadButton").attr("disabled", true);
+  }
+
   $("a[data-toggle=tab]").click(function() {
-    $.ajax({
-      url: "/api/lessons/teacherId/" + localStorage.getItem("email"),
-      type: "GET"
-    }).then(function(response) {
-      $("#nav-myupload").empty();
-      for (var i = 0; i < response.length; i++) {
-        $("#nav-myupload").append("<p> Name : " + response[i].name + "</p>");
-        $("#nav-myupload").append(
-          "<p> Subject : " + response[i].subject + "</p>"
-        );
-        var link = $("<a>");
-        link.attr("href", response[i].materials);
-        link.text("Open Link");
-        $("#nav-myupload").append(link);
-        $("#nav-myupload").append(
-          "<p> Grade Level : " + response[i].gradeLevel + "</p>"
-        );
-        $("#nav-myupload").append(
-          "<p> Uploaded at : " + response[i].createdAt + "</p>"
-        );
-        $("#nav-myupload").append(
-          "<p> Description : " + response[i].description + "</p>"
-        );
-        $("#nav-myupload").append("<hr>");
-      }
-    });
+    if (localStorage.getItem("email") !== null) {
+      $.ajax({
+        url: "/api/lessons/teacherId/" + localStorage.getItem("email"),
+        type: "GET"
+      }).then(function(response) {
+        $("#nav-myupload").empty();
+        for (var i = 0; i < response.length; i++) {
+          $("#nav-myupload").append("<p> Name : " + response[i].name + "</p>");
+          $("#nav-myupload").append(
+            "<p> Subject : " + response[i].subject + "</p>"
+          );
+          var link = $("<a>");
+          link.attr("href", response[i].materials);
+          link.text("Open Link");
+          $("#nav-myupload").append(link);
+          $("#nav-myupload").append(
+            "<p> Grade Level : " + response[i].gradeLevel + "</p>"
+          );
+          $("#nav-myupload").append(
+            "<p> Uploaded at : " + response[i].createdAt + "</p>"
+          );
+          $("#nav-myupload").append(
+            "<p> Description : " + response[i].description + "</p>"
+          );
+          $("#nav-myupload").append("<hr>");
+        }
+      });
+    } else {
+      console.log("User not logged in");
+    }
   });
 }
 
@@ -188,7 +196,8 @@ function submitSearch(grade, subject, description, file, lessonName) {
     description: description,
     materials: file,
     lessonName: lessonName,
-    teacherId: localStorage.getItem("id")
+    teacherId: localStorage.getItem("id"),
+    ratingQuantity: 0
   };
   $.ajax("/api/lessons", {
     type: "PUT",

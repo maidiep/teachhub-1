@@ -10,7 +10,14 @@ keys = keys.dbConfig[env];
 var db = {};
 
 if (process.env.JAWSDB_URL) {
-  var sequelize = new Sequelize(process.env.JAWSDB_URL);
+  var sequelize = new Sequelize(process.env.JAWSDB_URL, {
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000
+    }
+  });
 } else if (keys.use_env_variable) {
   var sequelize = new Sequelize(process.env[keys.use_env_variable], keys);
 } else {

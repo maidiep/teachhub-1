@@ -2,6 +2,11 @@ window.onload = init;
 //Initialize all of our fields
 function init() {
   document.getElementById("filterSubmit").onclick = clickboy;
+
+  if (localStorage.getItem("email") === null) {
+    $(".likeBtn").css("pointer-events", "none");
+  }
+
   $("#filterSubmit").on("click", function(e) {
     clickboy(e);
   });

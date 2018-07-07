@@ -5,6 +5,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Francois+One" rel="stylesheet">
     <link href="../../assets/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css">
+
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -23,6 +25,10 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
+        <meta name="google-signin-client_id" content="783539858113-8k266ms99fpol9gcnttp9844sho8u8bl.apps.googleusercontent.com">
+
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     
     <title>teachHub</title>
 </head>
@@ -51,11 +57,15 @@
                                 <a class="nav-link" href="/">FAQ</a>
                             </li> --}}
                         </ul>
-                        <ul class="navbar-nav ml-md-auto">
-                            <li class="nav-item">
+                        <ul id="rightSideNav" class="navbar-nav ml-md-auto">
+                            {{!-- <li class="nav-item">
                                 <a class="nav-link" data-toggle="modal" data-target=#signUpPopUp href="#">Search Results
                                 </a>
-                            </li>
+                            </li> --}}
+
+                            <div>
+                                <a id="signInBtn" class="g-signin2" data-onsuccess="onSignIn"></a>
+                            </div>
                         </ul>
                     </div>
                 </nav>
@@ -120,3 +130,82 @@
         </div>
     </div>
 </body>
+
+<script>
+            function onSignIn(googleUser) {
+                console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+                console.log("ID: " + googleUser.getBasicProfile().getId());
+                console.log("Name: " + googleUser.getBasicProfile().getName());
+                console.log("Image URL: " + googleUser.getBasicProfile().getImageUrl());
+                localStorage.setItem("avatar", googleUser.getBasicProfile().getImageUrl());
+                localStorage.setItem("name", googleUser.getBasicProfile().getName());
+                
+                localStorage.setItem("email", googleUser.getBasicProfile().getEmail())
+
+                let teacher = {
+                    name : googleUser.getBasicProfile().getName(),
+                    email : googleUser.getBasicProfile().getEmail()
+                }
+
+                $.ajax({
+                    url: "/api/teacher",
+                    type : "POST",
+                    dataType : "json",
+                    data : JSON.stringify(teacher),
+                    contentType : "application/json"
+                }).then(function(response) {
+                    localStorage.setItem("id", response.id);
+                })
+
+                console.log("Email: " + googleUser.getBasicProfile().getEmail());
+
+                var signOutBtn = $("<span>");
+                signOutBtn.addClass("octicon octicon-sign-out");
+
+                var singOutLink = $("<a>");
+                singOutLink.attr("href", "#");
+                singOutLink.append(signOutBtn);
+                singOutLink.attr("role", "button");
+                singOutLink.on("click", function() {
+                    signOutFn();
+                });
+
+                $("#signInBtn").hide();
+                var userName = $("<div>");
+                userName.text(googleUser.getBasicProfile().getName() + "  ");
+                $("#rightSideNav").append(userName);
+                $("#rightSideNav").append(singOutLink);
+                $(".likeBtn").css("pointer-events", "auto");
+            }
+            function onFailure(error) { 
+                console.log(error);
+            }
+            function renderButton() {
+                gapi.signin2.render('g-signin2', {
+                'scope': 'profile email',
+                'width': 240,
+                'height': 50,
+                'longtitle': true,
+                'theme': 'dark',
+                'onsuccess': onSignIn,
+                'onfailure': onFailure
+                });
+            }
+
+            function signOutFn() {
+  var auth2 = gapi.auth2.getAuthInstance();
+  if (auth2) {
+    auth2.signOut().then(function() {
+      localStorage.removeItem("avatar");
+      localStorage.removeItem("name");
+      localStorage.removeItem("id");
+      localStorage.removeItem("email");
+      console.log("User signed out.");
+      location.reload();
+    });
+  }
+}
+
+</script>
+
+            

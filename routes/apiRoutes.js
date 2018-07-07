@@ -172,7 +172,8 @@ module.exports = function(app) {
       description: req.body.description,
       materials: req.body.materials,
       name: req.body.lessonName,
-      teacherId: req.body.teacherId
+      teacherId: req.body.teacherId,
+      ratingQuantity: req.body.ratingQuantity
     }).then(function(sqlResponse) {
       console.log(sqlResponse);
       res.send(sqlResponse);
