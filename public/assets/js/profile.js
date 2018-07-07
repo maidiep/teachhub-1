@@ -46,13 +46,21 @@ function init() {
 function clickboy(e) {
   e.preventDefault();
 
-  let subject = $("#subjectSelect").val();
+  let subject = $("#subjectSelect")
+    .val()
+    .trim();
   let grade = $("#gradeSelect")
     .val()
     .trim();
-  let description = $("#description").val();
-  let file = $("#exampleInputFile1").val();
-  let lessonName = $("#lessonName").val();
+  let description = $("#description")
+    .val()
+    .trim();
+  let file = $("#exampleInputFile1")
+    .val()
+    .trim();
+  let lessonName = $("#lessonName")
+    .val()
+    .trim();
 
   /*
         AND THIS IS WHERE I WOULD PUT MY STAR RATINGS IF I HAD ANY
@@ -67,6 +75,16 @@ function clickboy(e) {
 
   console.log(subject);
   console.log(grade);
+
+  if (
+    grade === "" ||
+    subject === "" ||
+    description === "" ||
+    file === "" ||
+    lessonName === ""
+  ) {
+    alert("Please fill all the fields with valid values");
+  }
 
   submitSearch(grade, subject, description, file, lessonName);
 }
