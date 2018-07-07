@@ -1,23 +1,19 @@
 <div class="col-md-4 col-sm-10">
     <div class="card text-white bg-dark mb-3">
         <div class="card-header">
-            <div style="display: inline">
+            <h4 style="display: inline">
                 Subject - {{this.subject}}
-            </div>
-            <div id="ratingQuantity{{this.id}}" style="display: inline; position:absolute; right:20px">
+            </h4>
+            <div id="ratingQuantity{{this.id}}" style="display: inline; color:wheat; position:absolute; right:20px">
                 {{this.ratingQuantity}}
-            </div>
-            <div>
-                <i class="glyphicon glyphicon-thumbsup"></i>
             </div>
         </div>
         <div class="card-body">
-            <h5 class="card-title">Name - {{this.name}}</h5>
             <p class="card-text">Grade - {{this.gradeLevel}}</p>
+            <p class="card-title">Title - {{this.name}}</p>
             <p class="card-text">Desciption - {{this.description}}</p>
             <a href="{{this.materials}}" class="btn btn-warning">Download</a>
             <button class="btn btn-warning likeBtn" data-recordId="{{this.id}}"><i class="fas fa-thumbs-up"></i></button>
-
         </div>
     </div>
 </div>
