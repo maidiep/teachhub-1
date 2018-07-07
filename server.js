@@ -28,3 +28,5 @@ db.sequelize.sync({ force: false }).then(function() {
     console.log("Goodbye!");
   });
 });
+
+module.exports = app;
