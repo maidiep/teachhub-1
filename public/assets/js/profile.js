@@ -20,7 +20,7 @@ function init() {
           $("#nav-myupload").append(
             "<p> Subject : " + response[i].subject + "</p>"
           );
-          var link = $("<button>");
+          var link = $("<a>");
           link.attr("href", response[i].materials);
           link.addClass("btn btn-primary");
           link.text("Open Link");
