@@ -5,6 +5,7 @@ function init() {
 
   if (localStorage.getItem("email") === null) {
     $(".likeBtn").css("pointer-events", "none");
+    $(".likeBtn").removeAttr("href");
   }
 
   $("#filterSubmit").on("click", function(e) {

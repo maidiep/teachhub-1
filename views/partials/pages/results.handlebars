@@ -176,6 +176,8 @@
                 $("#rightSideNav").append(userName);
                 $("#rightSideNav").append(singOutLink);
                 $(".likeBtn").css("pointer-events", "auto");
+                $(".likeBtn").attr("href","#");
+
             }
             function onFailure(error) { 
                 console.log(error);
